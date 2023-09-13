@@ -1,0 +1,151 @@
+.app__home {
+  background-image: url(../../assets/Poster.png);
+  width: 100%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 10%;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app__signIn {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  cursor: pointer;
+}
+
+.logo {
+  width: 186px;
+  object-fit: contain;
+  height: 50px;
+  cursor: pointer;
+}
+
+.app__signIn p {
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.see__more {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.feature h3 {
+  color: #000;
+  font-family: DM Sans;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.see__more p {
+  color: var(--rose-700, #be123c);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.movie__card__container {
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.padding-movie {
+  padding: 1rem 10%;
+}
+
+@media screen and (max-height: 1000px) {
+  .app__home {
+    height: 100vh;
+  }
+  .padding-movie {
+    padding: 1rem 5%;
+  }
+  nav {
+    padding: 1rem 5%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  nav {
+    padding: 1rem 1rem;
+  }
+
+  .app__signIn {
+    gap: 15px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .app__signIn p {
+    font-size: 16px;
+  }
+  .app__home {
+    width: 100%;
+    height: 80vh;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  nav {
+    padding: 1rem 1rem;
+  }
+
+  .app__signIn p {
+    display: none;
+  }
+  .app__signIn img {
+    display: none;
+  }
+
+  .logo {
+    width: 100px;
+  }
+  .feature {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .see__more {
+    display: none;
+  }
+  .feature h3 {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 570px) {
+  nav {
+    padding: 1rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}

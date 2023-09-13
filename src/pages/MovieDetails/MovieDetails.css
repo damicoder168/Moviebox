@@ -1,0 +1,175 @@
+.app__movieDetails {
+  padding: 2rem 2rem;
+}
+
+.navbar__movieDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  align-items: center;
+  gap: 1rem;
+  background-color: black;
+}
+
+.app__signIn {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  cursor: pointer;
+}
+
+.logo {
+  width: 186px;
+  object-fit: contain;
+  height: 50px;
+  cursor: pointer;
+}
+
+.app__signIn p {
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.react__player {
+  height: 50vh;
+  object-fit: cover;
+  width: 50%;
+  margin-top: 3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.react__player img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.movie__details-contents {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.dot {
+  color: black;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-top: -15px;
+}
+
+.genre__container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.genre {
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ef96ab;
+}
+
+.movie__overview {
+  max-width: 500px;
+  margin-top: 1.5rem;
+}
+
+.movie__overview p {
+  color: #333;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #5a5a5a;
+  margin-top: 1rem;
+}
+
+.tagline span {
+  color: black;
+  font-size: 1.1rem;
+  font-family: cursive;
+}
+
+.status {
+  font-size: 1.1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 800;
+}
+
+@media screen and (max-height: 1000px) {
+  .app__home {
+    height: 100vh;
+  }
+  .padding-movie {
+    padding: 1rem 5%;
+  }
+  .navbar__movieDetails {
+    padding: 1rem 5%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .navbar__movieDetails {
+    padding: 1rem 1rem;
+  }
+
+  .app__signIn {
+    gap: 15px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .app__signIn p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .navbar__movieDetails {
+    padding: 1rem 1rem;
+  }
+
+  .app__signIn p {
+    display: none;
+  }
+  .app__signIn img {
+    display: none;
+  }
+
+  .logo {
+    width: 100px;
+  }
+  .react__player {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  .movie__details-contents {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 570px) {
+  .navbar__movieDetails {
+    padding: 1rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
