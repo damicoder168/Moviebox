@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import { getInitialMovies } from "../../utils/fetchFromApi";
 
 const Navbar = ({ handleSearch, handleChange, handleSubmit, movieTitle }) => {
- 
   return (
     <nav>
       <Link to="/" className="logo">
@@ -16,7 +15,6 @@ const Navbar = ({ handleSearch, handleChange, handleSubmit, movieTitle }) => {
       </Link>
 
       <SearchBar
-
         handleSearch={handleSearch}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
@@ -32,7 +30,6 @@ const Navbar = ({ handleSearch, handleChange, handleSubmit, movieTitle }) => {
 
 const Home = ({ handleSearch, handleChange, handleSubmit, movieTitle }) => {
   const [movie, setMovie] = useState([]);
-  
   useEffect(() => {
     getInitialMovies().then((data) => {
       setMovie(data?.results);
@@ -62,7 +59,6 @@ const Home = ({ handleSearch, handleChange, handleSubmit, movieTitle }) => {
           {movie &&
             movie.map((item) => <MovieCard key={item?.id} item={item} />)}
         </div>
-      
       </div>
     </>
   );
