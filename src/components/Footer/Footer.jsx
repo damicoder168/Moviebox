@@ -18,7 +18,7 @@ const Footer = () => {
         <p>Privacy & Policy</p>
         <p>Press Room</p>
       </div>
-      <p className="copyright">&copy; 2021 MovieBox by Dami</p>
+      <p className="copyright">&copy; 2021 MovieBox by Danny</p>
     </footer>
   );
 };
