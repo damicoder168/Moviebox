@@ -1,0 +1,97 @@
+.search__container {
+  display: flex;
+  gap: 70px;
+  flex-wrap: wrap;
+  padding: 1rem 10%;
+}
+
+.app__search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 10%;
+  background-color: rgb(14, 10, 10);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+}
+
+.logo__search {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.logo__search h3 {
+  font-size: 1.2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.search__name {
+  margin-top: 6rem;
+  padding-left: 10%;
+  margin-bottom: 2rem;
+}
+
+.search__name span {
+  color: rgb(245, 54, 54);
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 1350px) {
+  .search__container,
+  .app__search {
+    padding: 0.5rem 5%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .search__container,
+  .app__search {
+    padding: 0.5rem 2rem;
+  }
+
+  .search__container {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-height: 1000px) {
+  .app__search {
+    padding: 1rem 5%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .app__search {
+    padding: 1rem 1rem;
+  }
+}
+@media screen and (max-width: 760px) {
+  .search__container {
+    padding: 0.5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .app__search {
+    padding: 1rem 1rem;
+  }
+}
+@media screen and (max-width: 570px) {
+  .app__search {
+    padding: 1rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .search__container {
+    padding: 0.5rem 1rem;
+  }
+}

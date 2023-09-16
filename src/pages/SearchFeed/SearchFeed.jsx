@@ -1,40 +1,58 @@
-// import "./SearchFeed.css";
-// import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import { getInitialMovies } from "../../utils/fetchFromApi";
+import "./SearchFeed.css";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getMovieSearchResults } from "../../utils/fetchFromApi";
+import { Error, Loader, MovieCard, SearchBar } from "../../components";
+const SearchFeed = ({ handleSearch, handleChange, handleSubmit }) => {
+  const { movieTitle } = useParams();
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-// const SearchFeed = () => {
-//   const { movieTitle } = useParams();
-//   const [movies, setMovies] = useState([]);
-//   const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    try {
+      getMovieSearchResults(`${movieTitle}`)
+        .then((data) => {
+          setMovies(data?.results);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [movieTitle]);
 
-//   useEffect(() => {
-//     getInitialMovies().then((data) => console.log(data));
-//   }, []);
-//   // useEffect(() => {
-//   //   const apiKey = "YOUR_API_KEY"; // Replace with your actual API key
-//   //   const apiUrl = `https://api.themoviedb.org/3/trending/movie/day?language=en-US?api_key=${apiKey}`;
+  if (loading) {
+    return <Loader />;
+  }
 
-//   //   fetch(apiUrl)
-//   //     .then((response) => {
-//   //       if (!response.ok) {
-//   //         throw new Error("Network response was not ok");
-//   //       }
-//   //       return response.json();
-//   //     })
-//   //     .then((data) => {
-//   //       setMovies(data.results);
-//   //       setLoading(false);
-//   //     })
-//   //     .catch((error) => {
-//   //       console.error("Error fetching Search Details:", error);
-//   //       setLoading(false);
-//   //     });
+  if (movies.length === 0) {
+    return <Error />;
+  }
+  return (
+    <>
+      <div className="app__search">
+        <Link className="logo__search" to={"/"}>
+          <img src="/tv.png" alt="logo" />
+          <h3>MovieBox</h3>
+        </Link>
 
-//   //   console.log(movies);
-//   // }, []);
+        <SearchBar
+          handleSearch={handleSearch}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+      </div>
+      <h1 className="search__name">
+        Search Results For: <span>{movieTitle}</span>
+      </h1>
 
-//   return <div>Heyyyyyyyyy</div>;
-// };
+      <div className="search__container">
+        {movies && movies?.map((item) => <MovieCard item={item} />)}
+      </div>
+    </>
+  );
+};
 
-// export default SearchFeed;
+export default SearchFeed;

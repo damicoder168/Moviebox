@@ -8,11 +8,12 @@ const MovieDetails = () => {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    const apiKey = "6d77f6ad74fe305e31119672f2252108";
-    const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
 
+  const apiKey = "6d77f6ad74fe305e31119672f2252108";
+  const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+  useEffect(() => {
     setLoading(true);
+    console.log(movieDetails);
     try {
       fetch(apiUrl)
         .then((response) => {
@@ -23,18 +24,27 @@ const MovieDetails = () => {
         })
         .then((data) => {
           setMovieDetails(data);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     } catch (error) {
       alert("An Error Ocurred. Please try again", error);
-    } finally {
-      setLoading(false);
     }
-  }, [id]);
+  }, []);
 
   const releaseDate = new Date(movieDetails?.release_date);
-  const options = { year: "numeric" };
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    timeZoneName: "short",
+  };
   const utcReleaseDate = releaseDate.toLocaleDateString("en-US", options);
-
   if (loading) {
     return <Loader />;
   }
@@ -63,7 +73,6 @@ const MovieDetails = () => {
             <h3 data-testid="movie-title">{movieDetails?.title}</h3>
             <p className="dot">.</p>
             <p data-testid="movie-release-date">{utcReleaseDate}</p>
-
             <p className="dot">.</p>
 
             <div className="genre__container">
@@ -75,6 +84,9 @@ const MovieDetails = () => {
             </div>
           </div>
           <p className="status">{movieDetails?.status}</p>
+          <p className="runtime" data-testid="movie-runtime">
+            {movieDetails?.runtime} Minutes
+          </p>
           <div className="movie__overview">
             <p>{movieDetails?.overview}</p>
           </div>
